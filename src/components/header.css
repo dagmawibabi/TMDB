@@ -59,7 +59,7 @@
         display: none;
     }
     .gridView {
-        margin: 0px auto;
+        padding-left: 55px;
         grid-template-columns: repeat(1, 50vw);
         grid-template-rows: repeat(1, 110vw);
     }
