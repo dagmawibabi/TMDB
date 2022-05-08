@@ -9,6 +9,7 @@
     right: 0px;
     left: 0px;
     z-index: 9999;
+    opacity: 0.95;
 }
 
 .tmdbLogo {
@@ -79,6 +80,10 @@
 }
 
 @media (min-width: 1000px) {
+    .headerMovieTitle {
+        display: inline;
+        font-size: 20px;
+    }
     .gridView {
         padding-left: 4%;
         grid-template-columns: repeat(3, 30vw);
@@ -89,6 +94,10 @@
 }
 
 @media (min-width: 1400px) {
+    .headerMovieTitle {
+        display: inline;
+        font-size: 25px;
+    }
     .gridView {
         padding-left: 100px;
         padding-top: 20px;
