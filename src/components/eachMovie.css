@@ -48,3 +48,27 @@
     color: #aaa;
     margin-top: -32px;
 }
+
+/* Simple responsive  */
+@media (max-width: 1000px) {
+    .eachMovie {
+        padding-top: 12px;
+        width: fit-content;
+    }
+
+    .movieTitle {
+        font-size: 12px;
+    }
+
+    .moviePoster {
+        width: 260px;
+    }
+
+    .movieRating {
+        margin-top: -24px;
+    }
+
+    .movieLanguage {
+        margin-top: -24px;
+    }
+}

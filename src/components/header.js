@@ -3,6 +3,7 @@ import './header.css'
 import { useState, useEffect } from 'react';
 import { Details } from './details'
 import { EachMovie } from './eachMovie';
+import { Footer } from './footer';
 
 export const Header = (props) => {
     let [movieList, setMovieList] = useState([]);
@@ -30,6 +31,7 @@ export const Header = (props) => {
 
     return (
         <div>
+            
             <div className='header'> 
                 <img src={tmdb} alt="TMDB" className='tmdbLogo'></img>
                 {
@@ -72,10 +74,10 @@ export const Header = (props) => {
                             }
                         </div>
                     </div>
-                : <div>
-                    <Details bgImage='' moviePoster='' movieRD='Release Date' movieTitle= 'Movie Title' />
-                </div>                
+                : <Details bgImage='' moviePoster='' movieRD='Release Date' movieTitle= 'Movie Title' />
+                                
             }
+            <Footer />
         </div>
     )
 }

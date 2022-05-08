@@ -65,3 +65,28 @@
     border-radius: 10px;    
 
 }
+
+@media (max-width: 1000px) {
+    .details {
+        width: 100%;
+    }
+    .movieReleaseDateD {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    .movieTitleD {
+        font-size: 15px;
+    }
+    .movieDescriptionD {
+        font-size: 12px;
+    }
+    .movieRatingD {
+        font-size: 10px;
+    }
+    .movieLanguageD {
+        font-size: 10px;
+    }
+    .moviePosterD {
+        display: none;
+    }
+}
