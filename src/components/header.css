@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111111;
+    padding: 0px 25px 0px 25px;
+}
+
+.tmdbLogo {
+    width: 80px;
+    height: 80px;
+}
+
+.headerMovieTitle {
+    color: white;
+    font-size: 25px;
+}
+
+.watchLaterBtn {
+    width: 120px;
+    height: 30px;
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    border-style: solid;
+}
+
+.watchLaterBtn option {
+    background-color: black;
+}
+
+
+/* Grid view images */
+.gridView {
+    background-color: #111111;
+    padding-left: 100px;
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 20vw);
+    grid-template-rows: repeat(1, 35vw);
+    grid-row-gap: 20px;
+    grid-column-gap: 40px;
+    padding-bottom: 300px;
+}
+

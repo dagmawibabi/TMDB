@@ -1,0 +1,67 @@
+.detailsPage {
+    height: 90vh;
+    display: flex;
+    background-position: center;
+    align-items: flex-end;
+}
+
+.banner {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.movieBackdrop {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.blurImg {
+    filter: blur(10px);
+}
+
+.details {
+    padding: 15px 50px;
+    width: 40%;
+    color: white;
+    text-align: left;
+    height: fit-content;
+    background-color: #333333;
+    border-radius: 10px;    
+}
+
+.movieReleaseDateD {
+    margin-bottom: -5px;
+    font-weight: lighter;
+}
+
+.movieTitleD {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 0;
+}
+
+.movieDescriptionD {
+    padding-bottom: 1px;
+}
+
+.rateAndLangD {
+    display: flex;
+    justify-content: space-between;
+}
+
+.movieRatingD {
+    font-size: 15px;
+}
+.movieLanguageD {
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.moviePosterD {
+    width: 400px;
+    border-radius: 10px;    
+
+}

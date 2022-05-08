@@ -1,0 +1,50 @@
+.eachMovie {
+    background-color: #222222;
+    padding: 10px;
+    height: fit-content;
+    border: 1px solid #121212;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.eachMovie:hover {
+    background-color: #333333;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.moviePoster {
+    width: 300px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+}
+
+.movieTitle {
+    font-size: 18px;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.movieDescription {
+    font-size: 15px;
+}
+
+.movieRating {
+    font-size: 12px;
+    float: left;
+    margin-left: 10px;
+    color: #aaa;
+    margin-top: -32px;
+}
+
+.movieLanguage {
+    font-size: 12px;
+    float: right;
+    margin-right: 10px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-top: -32px;
+}
