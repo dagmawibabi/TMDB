@@ -69,16 +69,17 @@
 @media (max-width: 1000px) {
     .details {
         width: 100%;
+        margin-bottom: 20px;
     }
     .movieReleaseDateD {
         font-size: 12px;
         margin-bottom: 10px;
     }
     .movieTitleD {
-        font-size: 15px;
+        font-size: 18px;
     }
     .movieDescriptionD {
-        font-size: 12px;
+        font-size: 14px;
     }
     .movieRatingD {
         font-size: 10px;
