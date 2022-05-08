@@ -68,7 +68,8 @@
 
 @media (max-width: 1000px) {
     .detailsPage {
-        background-position: left;
+        background-position: center;
+        background-size: cover;
     }
     .details {
         width: 100%;
