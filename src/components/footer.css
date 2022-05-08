@@ -5,3 +5,8 @@
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+a {
+    text-transform: none;
+    color: #bbb;
+}
