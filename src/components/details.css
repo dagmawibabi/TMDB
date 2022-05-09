@@ -63,7 +63,23 @@
 .moviePosterD {
     width: 400px;
     border-radius: 10px;    
+}
 
+.moviePosterD {
+    animation-name: shadowAnimation;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes shadowAnimation {
+    from {
+        box-shadow: 0px 0px 15px 15px #111111;
+        transform: scale(1.0);
+    } to {
+        box-shadow: 0px 0px 10px 10px grey;
+        transform: scale(1.1);
+    }
 }
 
 @media (max-width: 1000px) {

@@ -1,3 +1,6 @@
+.movieStack {
+    position: relative;
+}
 .eachMovie {
     background-color: #222222;
     padding: 10px;
@@ -10,10 +13,76 @@
     padding-bottom: 10px;
 }
 
-.eachMovie:hover {
+.movieDescription {
+    position: absolute;
+    bottom: 10px;
+    height: 100%;
+    color: white;
+    background-color: #222222;
+    padding: 10px 20px;
+    visibility: hidden;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    z-index: 9999;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.movieStack:hover {
+    transform: scale(1.05);
+}
+
+.movieStack:hover .eachMovie {
+    background-color: #222222;
+    animation-name: rotateSlow;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.movieStack:hover .movieDescription {
+    display: block;
+    visibility: visible;
     background-color: #333333;
-    cursor: pointer;
-    transform: scale(1.1);
+    height: min-content;
+    text-align: left;
+    box-shadow: 0px 0px 2px 2px grey;
+    animation-name: descShow;
+    animation-duration: 1s;
+    animation-direction: normal;
+}
+
+@keyframes rotateSlow {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes descShow {
+    from {
+        opacity: 0.0;
+    } to {
+        opacity: 1.0;
+    }
+}
+
+
+
+
+.movieDescription h1, h2, h3, h4 {
+    margin: 0 0;
+
+}
+
+.rateAndLang {
+    display: flex;
+    justify-content: space-between;
 }
 
 .moviePoster {
