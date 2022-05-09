@@ -29,10 +29,12 @@
     color: white;
     text-align: left;
     height: fit-content;
-    background-color: #333333;
+    background-color: #222222;
     border-radius: 10px;    
 }
-
+.details:hover {
+    background-color: #333333;
+}
 .movieReleaseDateD {
     margin-bottom: -5px;
     font-weight: lighter;
@@ -63,6 +65,12 @@
 .moviePosterD {
     width: 400px;
     border-radius: 10px;    
+}
+
+.moviePosterD:hover {
+    background-color: #222222;
+    animation: none;
+    box-shadow: 0px 0px 10px 10px #2d839b;
 }
 
 .moviePosterD {

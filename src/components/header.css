@@ -18,26 +18,34 @@
 }
 
 .headerMovieTitle {
-    color: white;
+    color: #52d0f4;
     font-size: 25px;
+    opacity: 0.95;
+}
+
+.headerMovieTitle:hover {
+    color: #9feaff;
 }
 
 .watchLaterBtn {
     width: 100px;
     height: 25px;
-    padding-left: 5px;
+    padding: 0px 10px;
     background-color: transparent;
     color: white;
     border-color: #aaa;
     border-style: solid;
+    border-radius: 20px;
 }
 
 .watchLaterBtn option {
     background-color: black;
+    border-radius: 20px;
+
 }
 
 .watchLaterBtn:hover {
-    border-color: white;
+    border-color: #52d0f4;
 }
 
 

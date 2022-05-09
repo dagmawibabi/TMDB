@@ -13,6 +13,7 @@ export const Header = (props) => {
     const [currentIndex, changeCurrentIndex] = useState(0);
     const [movieID, setMovieID] = useState(453395);
     const [movieDetails, setMovieDetails] = useState({});
+    const [movieGenres, setMovieGenre] = useState( movieDetails['genres']);
 
     // async fetch data from api
     /*useEffect(() => {
@@ -35,28 +36,33 @@ export const Header = (props) => {
     useEffect(() => {
         fetch('https://api.themoviedb.org/3/movie/' + movieID + '?api_key=38d6559cd7b9ccdd0dd57ccca36e49fb&language=en-US')
         .then((result) => result.json())
-        .then((resultJSON) => {setMovieDetails(resultJSON); setMovieID(resultJSON['id']);  console.log(resultJSON['budget'])})
+        .then((resultJSON) => {setMovieDetails(resultJSON); setMovieID(resultJSON['id']);   console.log(resultJSON['budget'])})
         .catch((e) => console.log(e))
-        .finally(() => {setUpdateVal(1); })  
-    },[movieID]);
+        .finally(() => {setMovieGenre(movieDetails['genres']);})  
+    },[movieID, type]);
 
     function changeMovie(index) {
+        console.log(index);
         movieList.length > 0 ? setMovieID(movieList[index]['id']) : setMovieID(453395);
+        changeCurrentIndex(index);
+        setMovieGenre(movieDetails['genres']);
         //
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
-        changeCurrentIndex(index);
     }
+
     return (
         <div>   
             
             <div className='header'> 
-                <img src={tmdb} alt="TMDB" className='tmdbLogo'></img>
+                <a href="https://www.themoviedb.org/">
+                    <img src={tmdb} alt="TMDB" className='tmdbLogo'></img>
+                    </a> 
                 {
                     movieList.length > 0 ? (
-                        <h1 className='headerMovieTitle'> {type === "tv" ? movieList[0]["name"] : movieList[0]["title"]}  </h1>
+                        <h1 className='headerMovieTitle'> Trending Movies & Series  </h1>
                         )
                     : (
                         <h1 className='headerMovieTitle'> Loading... </h1>
@@ -76,9 +82,9 @@ export const Header = (props) => {
             </div>
             {
                 movieList.length > 0 ? 
-                    <div>
+                <div>
                         <div>
-                            <Details id='top' type={type} runtime={movieDetails['runtime']} homepage={movieDetails["homepage"]} budget={movieDetails["budget"]} status={movieDetails["status"]} tagline={movieDetails['tagline']} released={movieDetails['released']} bgImage={movieList[currentIndex]["backdrop_path"]} moviePoster={movieList[currentIndex]["poster_path"]} movieRD={movieList[currentIndex]["release_date"]} movieTitle= {type === "tv" ? movieList[currentIndex]["name"] : movieList[currentIndex]["title"]} movieDescription={movieList[currentIndex]["overview"]} movieRating={movieList[currentIndex]["vote_average"]} movieLanguage={movieList[currentIndex]["original_language"] } />
+                            <Details id='top' type={type} movieGenres={movieGenres} runtime={movieDetails['runtime']} homepage={movieDetails["homepage"]} budget={movieDetails["budget"]} status={movieDetails["status"]} tagline={movieDetails['tagline']} released={movieDetails['released']} bgImage={movieList[currentIndex]["backdrop_path"]} moviePoster={movieList[currentIndex]["poster_path"]} movieRD={movieList[currentIndex]["release_date"]} movieTitle= {type === "tv" ? movieList[currentIndex]["name"] : movieList[currentIndex]["title"]} movieDescription={movieList[currentIndex]["overview"]} movieRating={movieList[currentIndex]["vote_average"]} movieLanguage={movieList[currentIndex]["original_language"] } />
                         </div>
                         <div className='gridView'>
                             {
