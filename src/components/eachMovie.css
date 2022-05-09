@@ -54,6 +54,14 @@
     animation-name: descShow;
     animation-duration: 1s;
     animation-direction: normal;
+    width: fit-content;
+    z-index: 9999;
+}
+
+@media (max-width: 600px) {
+    .movieStack:hover .movieDescription {
+        width: 100%;
+    }
 }
 
 @keyframes rotateSlow {
