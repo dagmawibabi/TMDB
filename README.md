@@ -1,4 +1,4 @@
-# [Trending Movies & Series]("https://tmdb-dagmawibabi.vercel.app/")
+# [Trending Movies & Series](https://tmdb-dagmawibabi.vercel.app/)
 
 ## *Donno what movie to watch? or what series to binge?*
 ### Look no further cause I made a simple to use, minimal, aesthetic and feature full react web-app that show you trending movies and series.
@@ -19,7 +19,7 @@
 
 ---
 
-> ## [Visit site.]("https://tmdb-dagmawibabi.vercel.app/") 
+> ## [Visit site.](https://tmdb-dagmawibabi.vercel.app/) 
 
 ---
 
