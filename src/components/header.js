@@ -10,6 +10,9 @@ export const Header = (props) => {
     let [updateVal, setUpdateVal] = useState(0);
     let [time, setTime] = useState("week");
     let [type, setType] = useState("movie");
+    const [currentIndex, changeCurrentIndex] = useState(0);
+    const [movieID, setMovieID] = useState(453395);
+    const [movieDetails, setMovieDetails] = useState({});
 
     // async fetch data from api
     /*useEffect(() => {
@@ -21,7 +24,7 @@ export const Header = (props) => {
             )
     }, [updateVal]);*/
 
-    useEffect( () => {
+    useEffect(() => {
       fetch('https://api.themoviedb.org/3/trending/' + type +'/' + time + '?api_key=38d6559cd7b9ccdd0dd57ccca36e49fb')
       .then((result) => result.json())
       .then((resultJSON) => setMovieList(resultJSON.results))
@@ -29,8 +32,25 @@ export const Header = (props) => {
       .finally(() => {setUpdateVal(1); })
     }, [type, time])
 
+    useEffect(() => {
+        fetch('https://api.themoviedb.org/3/movie/' + movieID + '?api_key=38d6559cd7b9ccdd0dd57ccca36e49fb&language=en-US')
+        .then((result) => result.json())
+        .then((resultJSON) => {setMovieDetails(resultJSON); setMovieID(resultJSON['id']);  console.log(resultJSON['budget'])})
+        .catch((e) => console.log(e))
+        .finally(() => {setUpdateVal(1); })  
+    },[movieID]);
+
+    function changeMovie(index) {
+        movieList.length > 0 ? setMovieID(movieList[index]['id']) : setMovieID(453395);
+        //
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+        changeCurrentIndex(index);
+    }
     return (
-        <div>
+        <div>   
             
             <div className='header'> 
                 <img src={tmdb} alt="TMDB" className='tmdbLogo'></img>
@@ -58,18 +78,16 @@ export const Header = (props) => {
                 movieList.length > 0 ? 
                     <div>
                         <div>
-                            <Details bgImage={movieList[0]["backdrop_path"]} moviePoster={movieList[0]["poster_path"]} movieRD={movieList[0]["release_date"]} movieTitle= {type === "tv" ? movieList[0]["name"] : movieList[0]["title"]} movieDescription={movieList[0]["overview"]} movieRating={movieList[0]["vote_average"]} movieLanguage={movieList[0]["original_language"] } />
+                            <Details id='top' type={type} runtime={movieDetails['runtime']} homepage={movieDetails["homepage"]} budget={movieDetails["budget"]} status={movieDetails["status"]} tagline={movieDetails['tagline']} released={movieDetails['released']} bgImage={movieList[currentIndex]["backdrop_path"]} moviePoster={movieList[currentIndex]["poster_path"]} movieRD={movieList[currentIndex]["release_date"]} movieTitle= {type === "tv" ? movieList[currentIndex]["name"] : movieList[currentIndex]["title"]} movieDescription={movieList[currentIndex]["overview"]} movieRating={movieList[currentIndex]["vote_average"]} movieLanguage={movieList[currentIndex]["original_language"] } />
                         </div>
                         <div className='gridView'>
                             {
                                 movieList.map((movie, index) => {     
-                                    if (index > 0) {
-                                        return (
-                                            <div>
-                                                <EachMovie key={index} type={type} bgImage={movieList[index]["backdrop_path"]} moviePoster={movieList[index]["poster_path"]} movieRD={type === "tv" ? movieList[index]["first_air_date"] : movieList[index]["release_date"]} movieTitle= {type === "tv" ? movieList[index]["name"] : movieList[index]["title"]} movieDescription={movieList[index]["overview"]} movieRating={movieList[index]["vote_average"]} movieLanguage={movieList[index]["original_language"] } />
-                                            </div>
-                                        )
-                                    }                           
+                                    return (
+                                        <div>
+                                            <EachMovie key={index} index={index} onClickFunc={changeMovie} type={type} bgImage={movieList[index]["backdrop_path"]} moviePoster={movieList[index]["poster_path"]} movieRD={type === "tv" ? movieList[index]["first_air_date"] : movieList[index]["release_date"]} movieTitle= {type === "tv" ? movieList[index]["name"] : movieList[index]["title"]} movieDescription={movieList[index]["overview"]} movieRating={movieList[index]["vote_average"]} movieLanguage={movieList[index]["original_language"] } />
+                                        </div>
+                                    )
                                 })
                             }
                         </div>

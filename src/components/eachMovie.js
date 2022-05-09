@@ -3,7 +3,7 @@ export const EachMovie = (props) => {
     let poster = "https://image.tmdb.org/t/p/original" + props.moviePoster;
     let backdropImage = "https://image.tmdb.org/t/p/original" + props.bgImage;
     return (
-        <div className='movieStack'>
+        <div className='movieStack' onClick={(e) => props.onClickFunc(props.index)}>
             <div className="eachMovie">
                 <img key={props.key} alt="moviePoster" src={poster} className="moviePoster"/>
                 <h1 key={props.key} className="movieTitle"> {props.movieTitle} </h1>
