@@ -14,6 +14,8 @@ export const Header = (props) => {
     const [movieID, setMovieID] = useState(453395);
     const [movieDetails, setMovieDetails] = useState({});
     const [movieGenres, setMovieGenre] = useState( movieDetails['genres']);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     // async fetch data from api
     /*useEffect(() => {
@@ -26,12 +28,12 @@ export const Header = (props) => {
     }, [updateVal]);*/
 
     useEffect(() => {
-      fetch('https://api.themoviedb.org/3/trending/' + type +'/' + time + '?api_key=38d6559cd7b9ccdd0dd57ccca36e49fb')
+      fetch('https://api.themoviedb.org/3/trending/' + type +'/' + time + '?api_key=38d6559cd7b9ccdd0dd57ccca36e49fb&page=' + page)
       .then((result) => result.json())
-      .then((resultJSON) => setMovieList(resultJSON.results))
+      .then((resultJSON) => {setMovieList(resultJSON.results); setTotalPages(resultJSON['total_pages'])})
       .catch((e) => console.log(e))
       .finally(() => {setUpdateVal(1); })
-    }, [type, time])
+    }, [type, time, page])
 
     useEffect(() => {
         fetch('https://api.themoviedb.org/3/movie/' + movieID + '?api_key=38d6559cd7b9ccdd0dd57ccca36e49fb&language=en-US')
@@ -39,13 +41,17 @@ export const Header = (props) => {
         .then((resultJSON) => {setMovieDetails(resultJSON); setMovieID(resultJSON['id']);   console.log(resultJSON['budget'])})
         .catch((e) => console.log(e))
         .finally(() => {setMovieGenre(movieDetails['genres']);})  
-    },[movieID, type]);
+    },[movieID, type, page]);
 
     function changeMovie(index) {
         console.log(index);
         movieList.length > 0 ? setMovieID(movieList[index]['id']) : setMovieID(453395);
         changeCurrentIndex(index);
         setMovieGenre(movieDetails['genres']);
+        scrollToTop();
+    }
+
+    function scrollToTop() {
         //
         window.scrollTo({
             top: 0,
@@ -99,8 +105,13 @@ export const Header = (props) => {
                         </div>
                     </div>
                 : <Details bgImage='' moviePoster='' movieRD='Release Date' movieTitle= 'Movie Title' />
-                                
+
             }
+
+            <button onClick={(e)=> {setPage(page > 1 ? page - 1 : 1); scrollToTop(); }} className='pageBtn'> Back </button>
+            <span style={{color: 'white', marginRight: '15px'}}> Page: {page + '/' + totalPages} </span>
+            <button className='pageBtn' onClick={(e)=> {setPage(page >! totalPages + 1 ? page + 1 : 1); scrollToTop(); movieList.length > 0 ? setMovieID(movieList[0]['id']) : setMovieID(453395); changeCurrentIndex(0); setMovieGenre(movieDetails['genres']);}} > Next </button>
+                
             <Footer />
         </div>
     )

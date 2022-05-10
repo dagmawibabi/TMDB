@@ -115,3 +115,18 @@
         grid-column-gap: 40px;
     }
 }
+
+.pageBtn {
+    width: 100px;
+    height: 30px;
+    font-Weight: bold;
+    margin-Bottom: 50px;
+    margin-Right: 20px;
+    background-Color: #45b6d5;
+    font-Size: 17px;
+    border-radius: 20px;
+}
+
+.pageBtn:hover {
+    background-color: #a3dded;
+}
