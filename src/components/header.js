@@ -110,7 +110,7 @@ export const Header = (props) => {
 
             <button onClick={(e)=> {setPage(page > 1 ? page - 1 : 1); scrollToTop(); }} className='pageBtn'> Back </button>
             <span style={{color: 'white', marginRight: '15px'}}> Page: {page + '/' + totalPages} </span>
-            <button className='pageBtn' onClick={(e)=> {setPage(page >! totalPages + 1 ? page + 1 : 1); scrollToTop(); movieList.length > 0 ? setMovieID(movieList[0]['id']) : setMovieID(453395); changeCurrentIndex(0); setMovieGenre(movieDetails['genres']);}} > Next </button>
+            <button className='pageBtn' onClick={(e)=> {setPage(page + 1 > totalPages ? 1 : page + 1); scrollToTop(); movieList.length > 0 ? setMovieID(movieList[0]['id']) : setMovieID(453395); changeCurrentIndex(0); setMovieGenre(movieDetails['genres']);}} > Next </button>
                 
             <Footer />
         </div>
